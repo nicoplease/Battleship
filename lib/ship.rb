@@ -10,7 +10,12 @@ class Ship
   end
 
   def record_coordinates(coord)
-    player = Player.new.place_user_destroyer(coord)
+    if length == 2
+      player = Player.new.place_user_destroyer(coord)
+    elsif length == 3
+      player = Player.new.place_user_submarine(coord)
+    end
+
 
     @coordinates << player
     @coordinates.flatten
