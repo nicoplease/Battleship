@@ -15,10 +15,10 @@ class PlayerClass < Minitest::Test
 
     assert_equal %w[A1 A2], player.place_user_destroyer('A1 A2')
   end
-  #
-  # def test_it_can_place_ships
-  #   player = Player.new
-  #
-  #   assert_equal %w[A1 C1 B1], player.place_user_submarine('A1 C1')
-  # end
+
+  def test_it_can_place_ships
+    player = Player.new
+
+    assert_equal %w[A1 C1 B1], player.place_user_submarine('A1 C1')
+  end
 end
