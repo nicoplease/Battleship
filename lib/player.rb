@@ -52,7 +52,7 @@ class Player
   end
 end
 
-player = Player.new
-p player.place_user_destroyer('A1 A2')
-p player.place_user_submarine('A1 C1')
-p player.placed
+# player = Player.new
+# p player.place_user_destroyer('A1 A2')
+# p player.place_user_submarine('A1 C1')
+# p player.placed

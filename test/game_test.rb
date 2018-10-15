@@ -15,5 +15,10 @@ class GameTest < Minitest::Test
     assert_instance_of Board, game.board
   end
 
+  def test_it_can_have_player
+    game = Game.new
+
+    assert_instance_of Player, game.player1
+  end
 
 end
