@@ -3,16 +3,22 @@ require 'minitest/pride'
 require './lib/cell'
 
 class CellTest < Minitest::Test
+
   def test_it_exists
     cell = Cell.new('A', 4)
 
     assert_instance_of Cell, cell
   end
 
-  def test_it_has_x_and_y_coord
+  def test_it_has_x_coord
     cell = Cell.new('A', 1)
 
     assert_equal 'A', cell.x
+  end
+
+  def test_it_has_y_coord
+    cell = Cell.new('A', 1)
+
     assert_equal 1, cell.y
   end
 
