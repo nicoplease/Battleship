@@ -2,6 +2,7 @@ require './lib/cell'
 require 'pry'
 
 class Player
+
   attr_reader :ship_spots, :placed
 
   def initialize
