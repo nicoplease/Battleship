@@ -40,7 +40,7 @@ class CellTest < Minitest::Test
     cell.check
 
     assert_equal 1, cell.status
-    assert_equal ['M'], cell.display
+    assert_equal 'M', cell.display
   end
 
   def test_it_can_be_hit
@@ -49,12 +49,12 @@ class CellTest < Minitest::Test
     cell.check
 
     assert_equal 2, cell.status
-    assert_equal ['H'], cell.display
+    assert_equal 'H', cell.display
   end
 
   def test_it_has_a_default_display
     cell = Cell.new('A', 1)
 
-    assert_equal [' '], cell.display
+    assert_equal ' ', cell.display
   end
 end

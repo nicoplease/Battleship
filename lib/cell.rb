@@ -1,9 +1,10 @@
 class Cell
-  attr_reader :x, :y, :status
+  attr_reader :x, :y, :status, :display
   def initialize(x, y, status = 0) # 0 is neutral, 1 is miss, 2 is hit
     @y = y
     @x = x
     @status = status
+    @ship = nil
     @display = ' '
   end
 
@@ -24,6 +25,4 @@ class Cell
       @display = 'H'
     end
   end
-
-  attr_reader :display
 end
