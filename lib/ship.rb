@@ -1,9 +1,11 @@
 require './lib/player'
 
 class Ship
+
   attr_reader :length, :coordinates
+
   def initialize(length) # instead of length (cell(A1), cell(A2))
-    @length = length
+    @length      = length
     @coordinates = []
   end
 

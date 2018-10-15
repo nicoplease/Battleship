@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/board'
 
 class BoardTest < Minitest::Test
+  
   def test_it_exists
     board = Board.new
 
@@ -28,6 +29,11 @@ class BoardTest < Minitest::Test
     board = Board.new
 
     assert_equal ' ', board.populate_board['A1'].display
+  end
+
+  def test_it_can_have_a_status
+    board = Board.new
+
     assert_equal 0, board.populate_board['A1'].status
   end
 

@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/ship'
 
 class ShipTest < Minitest::Test
+
   def test_it_exists
     ship = Ship.new(2)
 
@@ -50,7 +51,7 @@ class ShipTest < Minitest::Test
   def test_it_can_record_coordinates
     ship = Ship.new(2)
 
-    assert_equal %w[A1 A2], ship.record_coordinates
+    assert_equal %w[A1 A2], ship.record_coordinates("A1, A2")
   end
 
   def test_you_can_change_coordinates
