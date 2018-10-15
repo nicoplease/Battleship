@@ -39,3 +39,5 @@ class Board
     all_spots = empty_spots.merge(placed_spots) # Isolate
   end
 end
+
+binding.pry
