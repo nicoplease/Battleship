@@ -12,7 +12,7 @@ class Cell
   end
 
   def place_ship
-    @ship = true
+    @ship = true # ship instance 
   end
 
   def ship?
@@ -23,8 +23,7 @@ class Cell
     if @ship.nil?
        @status += 1
        @display = 'M'
-    elsif
-       @ship == true
+    elsif @ship == true
        @status += 2
        @display = 'H'
     else

@@ -23,7 +23,7 @@ class Board
 
   def populate_board # used to affect those methods
     valid_spots = %w[A1 A2 A3 A4 B1 B2 B3 B4 C1 C2 C3 C4 D1 D2 D3 D4] # isolate
-    valid_spots -= %w[A1 A2 A3] # @placed   # @placed but without player
+    valid_spots -= %w[A1 A2 A3] # remove - every single space is a single cell
     empty_spots = {}
     valid_spots.map do |spot|
       spot = Cell.new(spot.chars[0], spot.chars[1]) # iso
@@ -39,5 +39,3 @@ class Board
     all_spots = empty_spots.merge(placed_spots) # Isolate
   end
 end
-
-binding.pry
