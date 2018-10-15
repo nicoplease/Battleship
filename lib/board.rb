@@ -25,15 +25,15 @@ class Board
     valid_spots = %w[A1 A2 A3 A4 B1 B2 B3 B4 C1 C2 C3 C4 D1 D2 D3 D4] # isolate
     valid_spots -= %w[A1 A2 A3] # @placed   # @placed but without player
     empty_spots = {}
-    valid_spots.map do |test|
-      test = Cell.new(test.chars[0], test.chars[1]) # iso
-      empty_spots[test.x.to_s + test.y.to_s] = test
+    valid_spots.map do |spot|
+      spot = Cell.new(spot.chars[0], spot.chars[1]) # iso
+      empty_spots[spot.x.to_s + spot.y.to_s] = spot
     end
     placed_spots = {}
-    %w[A1 A2 A3].map do |test|
-      test = Cell.new(test.chars[0], test.chars[1])
-      test.place_ship
-      placed_spots[test.x.to_s + test.y.to_s] = test
+    %w[A1 A2 A3].map do |spot|
+      spot = Cell.new(spot.chars[0], spot.chars[1])
+      spot.place_ship
+      placed_spots[spot.x.to_s + spot.y.to_s] = spot
     end
 
     all_spots = empty_spots.merge(placed_spots) # Isolate
