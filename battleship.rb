@@ -30,7 +30,7 @@ class Battleship
   end
 
   def play
-    Game.begin
+    Game.new
   end
 
 end
