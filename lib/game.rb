@@ -20,16 +20,16 @@ attr_reader :board, :player1, :ship1, :ship2
   def store_ship_spots
     p "Place your 2 space Destroyer"
     print ">> "
-    # input = gets.chomp - for implementation with battleship.rb
-    input = "A1 A2"
+    input = gets.chomp #- for implementation with battleship.rb
+    # input = "A1 A2"
     ship_spots = []
     ship_spots << @ship1.record_coordinates(input)
     ship_spots.flatten
 
     p "Place your 3 space Submarine"
     print ">> "
-    # input = gets.chomp - for implementation with battleship.rb
-    input = "B1 B3"
+    input = gets.chomp #- for implementation with battleship.rb
+    # input = "B1 B3"
     ship_spots << @ship2.record_coordinates(input)
 
     ship_spots.flatten

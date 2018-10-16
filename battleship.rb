@@ -30,7 +30,9 @@ class Battleship
   end
 
   def play
-    Game.begin
+    game = Game.new
+    game.display_board
+    game.store_ship_spots
   end
 
 end
