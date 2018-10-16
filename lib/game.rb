@@ -7,10 +7,10 @@ class Game
 attr_reader :board, :player1, :ship1, :ship2
 
   def initialize
-    @board = Board.new
+    @board   = Board.new
     @player1 = Player.new
-    @ship1 = Ship.new(2)
-    @ship2 = Ship.new(3)
+    @ship1   = Ship.new(2)
+    @ship2   = Ship.new(3)
   end
 
   def display_board
@@ -35,7 +35,6 @@ attr_reader :board, :player1, :ship1, :ship2
     ship_spots.flatten
   end
 
-# binding.pry
 
 
 

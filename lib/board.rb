@@ -4,7 +4,7 @@ require 'pry'
 
 class Board
 
-  attr_reader :row_num, :row_a, :row_b, :row_c, :row_d
+  attr_reader :cells
 
   def initialize
 

@@ -3,32 +3,28 @@ require 'minitest/pride'
 require './lib/board'
 
 class BoardTest < Minitest::Test
-  
+
   def test_it_exists
     board = Board.new
 
     assert_instance_of Board, board
   end
 
-  def test_it_loads_on_initialization
-    board = Board.new
-
-    assert_equal ({ 1 => ['0'], 2 => ['1'], 3 => ['2'], 4 => ['3'], 5 => ['4'] }), board.row_num
-  end
-
   def test_it_can_be_displayed
     board = Board.new
 
-    assert_equal ['A'], board.row_a[1]
-    assert_equal ['B'], board.row_b[1]
-    assert_equal ['C'], board.row_c[1]
-    assert_equal ['D'], board.row_d[1]
+  expected = [ [["O"],["1"],["2"],["3"],["4"]],
+              [["A"], Cell.new('A', '1').display, Cell.new('A', '2').display, Cell.new('A', '3').display, Cell.new('A', '4').display],
+              [["B"], Cell.new('B', '1').display, Cell.new('B', '2').display, Cell.new('B', '3').display, Cell.new('B', '4').display],
+              [["C"], Cell.new('C', '1').display, Cell.new('C', '2').display, Cell.new('C', '3').display, Cell.new('C', '4').display],
+              [["D"], Cell.new('D', '1').display, Cell.new('D', '2').display, Cell.new('D', '3').display, Cell.new('D', '4').display]]
+   assert_equal expected, board.cells
   end
 
   def test_it_can_be_populated_by_cells
     board = Board.new
 
-    assert_equal ' ', board.populate_board['A1'].display
+    assert_equal [' '], board.populate_board['A1'].display
   end
 
   def test_it_can_have_a_status
@@ -37,9 +33,4 @@ class BoardTest < Minitest::Test
     assert_equal 0, board.populate_board['A1'].status
   end
 
-  def test_its_cells_can_have_ships
-    board = Board.new
-
-    assert_equal true, board.populate_board['A1'].ship?
-  end
 end
