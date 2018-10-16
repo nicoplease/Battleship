@@ -1,7 +1,7 @@
 
 class Cell
 
-  attr_reader :x, :y, :status, :display
+  attr_reader :x, :y, :status, :display,:ships
 
   def initialize(x, y, status = 0) # 0 is neutral, 1 is miss, 2 is hit
     @y = y
@@ -9,10 +9,13 @@ class Cell
     @status = status
     @ship = nil
     @display = [' ']
+    @ships = []
   end
 
   def place_ship
     @ship = true # ship instance
+
+    @ships
   end
 
   def ship?

@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/cell'
+require './lib/ship'
 
 class CellTest < Minitest::Test
 
@@ -61,6 +62,22 @@ class CellTest < Minitest::Test
   def test_it_has_a_default_display
     cell = Cell.new('A', 1)
 
-    assert_equal ' ', cell.display
+    assert_equal [' '], cell.display
   end
+
+  def test_it_starts_with_empty_array_of_ships_instances
+    cell = Cell.new('A', 1)
+
+    assert_equal [], cell.ships
+  end
+
+  def test_it_can_have_a_ship_instance
+    cell = Cell.new('A', 1)
+    ship = Ship.new(2)
+    cell.ships << ship
+
+    assert_instance_of Ship, cell.place_ship[0]
+  end
+
+
 end
