@@ -1,4 +1,5 @@
 require './lib/player'
+require './lib/cell'
 
 class Ship
 
@@ -18,7 +19,17 @@ class Ship
 
 
     @coordinates << player
-    @coordinates.flatten
+    @coordinates = @coordinates.flatten
+  end
+
+  def cell
+    cells = {}
+    @coordinates.each do |xy|
+      xy = Cell.new(xy[0], xy[1])
+      cells[xy.x.to_s + xy.y.to_s] = xy
+    end
+    cells
+
   end
 
   def health
@@ -28,6 +39,8 @@ class Ship
   def damage
     @length -= 1
   end
+
+
 
   def status
     if @length >= 1

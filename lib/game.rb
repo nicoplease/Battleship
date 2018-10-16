@@ -35,6 +35,10 @@ attr_reader :board, :player1, :ship1, :ship2
     ship_spots.flatten
   end
 
+binding.pry
+
+
+
 
 
 

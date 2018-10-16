@@ -37,13 +37,15 @@ class GameTest < Minitest::Test
   end
 
 
-  def test_board_can_store_ship_coordinates
+  def test_Gameboard_can_store_ship_coordinates
     game = Game.new
     ship1 = Ship.new(2)
     ship2 = Ship.new(3)
 
     assert_equal %w[A1 A2 B1 B3 B2], game.store_ship_spots
   end
+
+  # def test_game_can_place_ship_cells
 
 
 end
