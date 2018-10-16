@@ -6,11 +6,17 @@ class Board
   attr_reader :row_num, :row_a, :row_b, :row_c, :row_d
 
   def initialize
-    @row_num = { 1 => ['0'], 2 => ['1'], 3 => ['2'], 4 => ['3'], 5 => ['4'] }
-    @row_a   = { 1 => ['A'], 2 => [populate_board['A1'].display], 3 => [populate_board['A2'].display], 4 => [populate_board['A3'].display], 5 => [populate_board['A4'].display] }
-    @row_b   = { 1 => ['B'], 2 => [populate_board['B1'].display], 3 => [populate_board['B2'].display], 4 => [populate_board['B3'].display], 5 => [populate_board['B4'].display] }
-    @row_c   = { 1 => ['C'], 2 => [populate_board['C1'].display], 3 => [populate_board['C2'].display], 4 => [populate_board['C3'].display], 5 => [populate_board['C4'].display] }
-    @row_d   = { 1 => ['D'], 2 => [populate_board['D1'].display], 3 => [populate_board['D2'].display], 4 => [populate_board['D3'].display], 5 => [populate_board['D4'].display] }
+
+  @cells = [[Cell.new('A', '1'), Cell.new('A', '2'), Cell.new('A', '3'), Cell.new('A', '4')],
+            [Cell.new('B', '1'), Cell.new('B', '2'), Cell.new('B', '3'), Cell.new('B', '4')],
+            [Cell.new('C', '1'), Cell.new('C', '2'), Cell.new('C', '3'), Cell.new('C', '4')],
+            [Cell.new('D', '1'), Cell.new('D', '2'), Cell.new('D', '3'), Cell.new('D', '4')]]
+
+  binding.pry#   @row_num = { 1 => ['0'], 2 => ['1'], 3 => ['2'], 4 => ['3'], 5 => ['4'] }
+  #   @row_a   = { 1 => ['A'], 2 => [populate_board['A1'].display], 3 => [populate_board['A2'].display], 4 => [populate_board['A3'].display], 5 => [populate_board['A4'].display] }
+  #   @row_b   = { 1 => ['B'], 2 => [populate_board['B1'].display], 3 => [populate_board['B2'].display], 4 => [populate_board['B3'].display], 5 => [populate_board['B4'].display] }
+  #   @row_c   = { 1 => ['C'], 2 => [populate_board['C1'].display], 3 => [populate_board['C2'].display], 4 => [populate_board['C3'].display], 5 => [populate_board['C4'].display] }
+  #   @row_d   = { 1 => ['D'], 2 => [populate_board['D1'].display], 3 => [populate_board['D2'].display], 4 => [populate_board['D3'].display], 5 => [populate_board['D4'].display] }
   end
 
   def display
