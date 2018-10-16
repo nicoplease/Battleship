@@ -7,8 +7,8 @@ class Player
 
   def initialize
     @placed = []
-    @ship_spots = nil
-    @empty_spot = nil
+    # @ship_spots = nil
+    # @empty_spot = nil
   end
 
   def place
