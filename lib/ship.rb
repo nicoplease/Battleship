@@ -7,6 +7,7 @@ class Ship
 
   def initialize(length) # instead of length (cell(A1), cell(A2))
     @length      = length
+    @cells = [<cell>, <cell>]
     @coordinates = []
   end
 
@@ -16,8 +17,6 @@ class Ship
     elsif length == 3
       player = Player.new.place_user_submarine(coord)
     end
-
-
     @coordinates << player
     @coordinates = @coordinates.flatten
   end
@@ -25,11 +24,12 @@ class Ship
   def cell
     cells = {}
     @coordinates.each do |xy|
-      xy = Cell.new(xy[0], xy[1])
-      cells[xy.x.to_s + xy.y.to_s] = xy
+      cell = Cell.new(xy[0], xy[1])
+      cell.place_ship
+      cells[xy] = cell
+      # { 'a1' => <#Cell x = 'A', y = 1 >}
     end
     cells
-
   end
 
   def health
