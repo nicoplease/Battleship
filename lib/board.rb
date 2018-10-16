@@ -7,10 +7,11 @@ class Board
 
   def initialize
 
-  @cells = [[Cell.new('A', '1'), Cell.new('A', '2'), Cell.new('A', '3'), Cell.new('A', '4')],
-            [Cell.new('B', '1'), Cell.new('B', '2'), Cell.new('B', '3'), Cell.new('B', '4')],
-            [Cell.new('C', '1'), Cell.new('C', '2'), Cell.new('C', '3'), Cell.new('C', '4')],
-            [Cell.new('D', '1'), Cell.new('D', '2'), Cell.new('D', '3'), Cell.new('D', '4')]]
+  @cells = [ [["O"],["1"],["2"],["3"],["4"]],
+            [["A"], Cell.new('A', '1').display, Cell.new('A', '2').display, Cell.new('A', '3').display, Cell.new('A', '4').display],
+            [["B"], Cell.new('B', '1').display, Cell.new('B', '2').display, Cell.new('B', '3').display, Cell.new('B', '4').display],
+            [["C"], Cell.new('C', '1').display, Cell.new('C', '2').display, Cell.new('C', '3').display, Cell.new('C', '4').display],
+            [["D"], Cell.new('D', '1').display, Cell.new('D', '2').display, Cell.new('D', '3').display, Cell.new('D', '4').display]]
 
   binding.pry#   @row_num = { 1 => ['0'], 2 => ['1'], 3 => ['2'], 4 => ['3'], 5 => ['4'] }
   #   @row_a   = { 1 => ['A'], 2 => [populate_board['A1'].display], 3 => [populate_board['A2'].display], 4 => [populate_board['A3'].display], 5 => [populate_board['A4'].display] }
@@ -20,11 +21,16 @@ class Board
   end
 
   def display
-    p row_num.values
-    p row_a.values
-    p row_b.values
-    p row_c.values
-    p row_d.values
+    # p row_num.values
+    # p row_a.values
+    # p row_b.values
+    # p row_c.values
+    # p row_d.values
+    p @cells[0]
+    p @cells[1]
+    p @cells[2]
+    p @cells[3]
+    p @cells[4]
   end
 
   def populate_board # used to affect those methods

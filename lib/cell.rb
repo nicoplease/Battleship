@@ -8,11 +8,11 @@ class Cell
     @x = x
     @status = status
     @ship = nil
-    @display = ' '
+    @display = [' ']
   end
 
   def place_ship
-    @ship = true # ship instance 
+    @ship = true # ship instance
   end
 
   def ship?

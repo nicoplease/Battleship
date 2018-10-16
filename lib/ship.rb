@@ -7,7 +7,7 @@ class Ship
 
   def initialize(length) # instead of length (cell(A1), cell(A2))
     @length      = length
-    @cells = [<cell>, <cell>]
+    # @cells = [<cell>, <cell>]
     @coordinates = []
   end
 
