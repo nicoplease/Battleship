@@ -18,22 +18,18 @@ attr_reader :board, :player1, :ship1, :ship2
   end
 
   def store_destroyer_spots
-    puts 'Enter the squares for the two-unit ship like this: A1 A2'
-    print ">"
-    input = gets.chomp #- for implementation with battleship.rb
+    input = gets.chomp
     ship_spots = []
-    ship_spots << @ship1.record_coordinates(input)
+    ship_spots << @ship1.record_coordinates(input.upcase)
     ship_spots.flatten
   end
 
   def store_submarine_spots
-    puts 'Enter the squares for the two-unit ship like this: A1 A2'
-    print ">"
-    # input = gets.chomp #- for implementation with battleship.rb
-    input = "B1 B3"
-    ship_spots = []
-    ship_spots << @ship2.record_coordinates(input)
-    ship_spots.flatten
+    input = gets.chomp
+    # input = "B1 B3"
+    sub_spots = []
+    sub_spots << @ship2.record_coordinates(input.upcase)
+    sub_spots.flatten
   end
 
 end

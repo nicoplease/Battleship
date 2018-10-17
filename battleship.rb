@@ -34,7 +34,12 @@ class Battleship
     puts 'You now need to layout your two ships.'
     puts 'The first is two units long and the second is three units long.'
     puts 'The grid has A1 at the top left and D4 at the bottom right.'
+    puts 'Enter the squares for the two-unit ship like this: A1 A2'
+    print ">"
     game.store_destroyer_spots
+    puts 'Enter the squares for the three-unit ship like this: A1 A2 A3'
+    print ">"
+    game.store_submarine_spots
   end
 
 end
