@@ -14,6 +14,7 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
     @ship1   = Ship.new(2)
     @ship2   = Ship.new(3)
     @destroyer_spots = []
+    @sub_spots = []
   end
 
   def display_board
@@ -28,9 +29,9 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
 
   def store_submarine_spots
     input = gets.chomp
-    sub_spots = []
-    sub_spots << @ship2.record_coordinates(input.upcase)
-    sub_spots.flatten
+    # input = "B1 B3"
+    @sub_spots << @ship2.record_coordinates(input.upcase)
+    @sub_spots = @sub_spots.flatten
   end
 
   def place_destroyer_in_cells
@@ -39,6 +40,23 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
       @board.cell_names[spot.to_sym].ships << @ship1
       @board.cell_names[spot.to_sym]
     end
+
   end
+
+  def place_submarine_in_cells
+    @sub_spots.map do |spot|
+      @board.cell_names[spot.to_sym].place_ship
+      @board.cell_names[spot.to_sym].ships << @ship2
+      @board.cell_names[spot.to_sym]
+    end
+  end
+
+  def guess(input)
+    input_s = input.to_sym
+    @board.cell_names[input_s].check
+    @board.cell_names[input_s].ships[0].damage
+    @board.display
+  end
+
 
 end
