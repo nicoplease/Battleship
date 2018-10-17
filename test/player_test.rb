@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/player.rb'
+require './test/test_helper'
 
 class PlayerClass < Minitest::Test
 
