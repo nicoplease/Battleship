@@ -3,7 +3,7 @@ require 'pry'
 
 class Cell
 
-  attr_reader :x, :y, :status, :display,:ships
+  attr_reader :x, :y, :status, :display, :ships, :place_ship
 
   def initialize(x, y, status = 0)
     @y       = y
@@ -29,8 +29,6 @@ class Cell
        @status += 1
        @display = 'M'
     elsif @ship == true
-       # @ships.first.damage
-       # binding.pry
        @status += 2
        @display = 'H'
     else

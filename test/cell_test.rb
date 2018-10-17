@@ -60,11 +60,17 @@ class CellTest < Minitest::Test
   end
 
   def test_cell_damages_ship_when_checked
-    skip
-    @cell.place_ship
-    @cell.ships << @ship
-    @cell.check
 
-    assert_equal 1 , @cell.check.ships.first.health
+    cell = Cell.new('A', 1)
+    ship = Ship.new(2)
+    cell.place_ship
+    cell.ships << ship
+    cell.check
+    cell.ships.first.damage
+
+
+    assert_equal 1 , cell.ships.first.health
+
   end
+
 end
