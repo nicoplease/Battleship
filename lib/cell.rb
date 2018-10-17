@@ -1,5 +1,5 @@
 require './lib/ship'
-
+require 'pry'
 class Cell
 
   attr_reader :x, :y, :status, :display,:ships
@@ -15,6 +15,7 @@ class Cell
 
   def place_ship
     @ship = true # ship instance
+
     @ships
   end
 
@@ -27,6 +28,8 @@ class Cell
        @status += 1
        @display = 'M'
     elsif @ship == true
+       # @ships.first.damage
+       # binding.pry
        @status += 2
        @display = 'H'
     else

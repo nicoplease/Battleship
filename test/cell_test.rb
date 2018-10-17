@@ -1,12 +1,9 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/cell'
-require './lib/ship'
+require './test/test_helper'
 
 class CellTest < Minitest::Test
 
   def test_it_exists
-    cell = Cell.new('A', 4)
+    cell = Cell.new('A', 1)
 
     assert_instance_of Cell, cell
   end
@@ -32,7 +29,7 @@ class CellTest < Minitest::Test
   def test_it_has_no_ship
     cell = Cell.new('A', 1)
 
-    assert_equal nil, cell.ship?
+    assert_nil cell.ship?
   end
 
   def test_it_can_have_a_ship
@@ -76,8 +73,18 @@ class CellTest < Minitest::Test
     ship = Ship.new(2)
     cell.ships << ship
 
+
     assert_instance_of Ship, cell.place_ship[0]
   end
 
+  def test_cell_damages_ship_when_checked
+    skip
+    cell = Cell.new('A', 1)
+    ship = Ship.new(2)
+    cell.place_ship
+    cell.ships << ship
+    cell.check
 
+    assert_equal 1 , cell.check.ships.first.health
+  end
 end
