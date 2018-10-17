@@ -13,6 +13,7 @@ attr_reader :board, :player1, :ship1, :ship2, :destroyer_spots
     @ship2 = Ship.new(3)
     @ship_spots
     @destroyer_spots = []
+    @sub_spots = []
   end
 
   def display_board
@@ -33,20 +34,29 @@ attr_reader :board, :player1, :ship1, :ship2, :destroyer_spots
     print ">> "
     input = gets.chomp #- for implementation with battleship.rb
     # input = "B1 B3"
-    sub_spots = []
-    sub_spots << @ship2.record_coordinates(input.upcase)
+    @sub_spots << @ship2.record_coordinates(input.upcase)
 
-    sub_spots.flatten
+    @sub_spots = @sub_spots.flatten
   end
 
   def place_destroyer_in_cells
-    coordinates = {"A"=>1, "B"=>2, "C"=>3, "D"=>4, "1"=>1, "2"=>2, "3"=>3, "4"=>4}
     @destroyer_spots.map do |spot|
       @board.cell_names[spot.to_sym].place_ship
-      @board.cell_names[spot.to_sym].ships << @ship1      
+      @board.cell_names[spot.to_sym].ships << @ship1
       @board.cell_names[spot.to_sym]
     end
   end
+
+  def place_submarine_in_cells
+    @sub_spots.map do |spot|
+      @board.cell_names[spot.to_sym].place_ship
+      @board.cell_names[spot.to_sym].ships << @ship2
+      @board.cell_names[spot.to_sym]
+    end
+  end
+
+
+
 
 end
 
