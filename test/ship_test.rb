@@ -53,9 +53,4 @@ class ShipTest < Minitest::Test
     assert_equal %w[A1 A2], @ship.record_coordinates('A1 A2')
   end
 
-  def test_ships_can_have_cells
-    @ship.record_coordinates("A1 A2")
-    assert_equal "A1", @ship.cell.keys[0]
-  end
-
 end

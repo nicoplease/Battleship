@@ -1,5 +1,6 @@
 require 'pry'
-require "./lib/board"
+require './lib/board'
+require './lib/player'
 require './lib/ship'
 
 class Game

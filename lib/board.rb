@@ -40,4 +40,5 @@ class Board
     # all_spots = empty_spots.merge(placed_spots) # Isolate
     empty_spots
   end
+
 end
