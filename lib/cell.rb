@@ -28,8 +28,6 @@ class Cell
        @status += 1
        @display = 'M'
     elsif @ship == true
-       # @ships.first.damage
-       # binding.pry
        @status += 2
        @display = 'H'
     else
