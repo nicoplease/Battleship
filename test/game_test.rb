@@ -50,7 +50,9 @@ class GameTest < Minitest::Test
     assert_equal %w[B1 B3 B2], game.store_submarine_spots
   end
 
-  # def test_game_can_place_ship_cells
+  def test_game_can_place_ship_cells
+    game = Game.new
 
-
+    assert_equal true, game.cell["A1"].ship?
+  end
 end
