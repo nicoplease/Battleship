@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/ship'
+require './test/test_helper'
 
 class ShipTest < Minitest::Test
 
