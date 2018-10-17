@@ -1,5 +1,4 @@
 require './lib/game'
-require './lib/player'
 require 'pry'
 
 class Battleship
@@ -15,24 +14,27 @@ class Battleship
     input = gets.chomp
     if input == 'p' || input =='play'
       play
-      elsif input == 'i' || input =='instructions'
-        puts 'Ships cannot wrap around the board'
-        puts 'Ships cannot overlap'
-        puts 'Ships can be laid either horizontally or vertically'
-        puts 'Coordinates must correspond to the first and last units of the ship.'
-        puts  '(IE: You can’t place a two unit ship at “A1 A3”)'
-      elsif input == 'q' || input =='quit'
-        puts "OK,bye...!"
-      else
-        puts 'Invalid answer, please, try again'
-        start
+    elsif input == 'i' || input =='instructions'
+      puts 'Ships cannot wrap around the board'
+      puts 'Ships cannot overlap'
+      puts 'Ships can be laid either horizontally or vertically'
+      puts 'Coordinates must correspond to the first and last units of the ship.'
+    elsif input == 'q' || input =='quit'
+      puts "OK,bye...!"
+    else
+      puts 'Invalid answer, please, try again'
+      start
     end
   end
 
   def play
     game = Game.new
     game.display_board
-    game.store_ship_spots
+    puts 'I have laid out my ships on the grid.'
+    puts 'You now need to layout your two ships.'
+    puts 'The first is two units long and the second is three units long.'
+    puts 'The grid has A1 at the top left and D4 at the bottom right.'
+    game.store_destroyer_spots
   end
 
 end
