@@ -3,7 +3,7 @@ require 'pry'
 
 class Cell
 
-  attr_reader :x, :y, :status, :display, :ships, :place_ship
+  attr_reader :x, :y, :status, :display, :ships
 
   def initialize(x, y, status = 0)
     @y       = y

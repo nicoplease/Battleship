@@ -31,10 +31,4 @@ class GameTest < Minitest::Test
     assert @game.store_submarine_spots
   end
 
-  def test_game_can_place_ship_cells
-    game = Game.new
-
-    assert_equal true, game.cell["A1"].ship?
-  end
-
 end
