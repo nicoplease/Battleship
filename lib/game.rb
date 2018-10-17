@@ -55,7 +55,12 @@ attr_reader :board, :player1, :ship1, :ship2, :destroyer_spots
     end
   end
 
-
+  def guess(input)
+    input_s = input.to_sym
+    @board.cell_names[input_s].check
+    @board.cell_names[input_s].ships[0].damage
+    @board.display
+  end
 
 
 end
