@@ -1,5 +1,4 @@
 require './lib/cell'
-require './lib/player'
 require 'pry'
 
 class Board
