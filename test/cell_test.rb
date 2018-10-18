@@ -64,7 +64,6 @@ class CellTest < Minitest::Test
     @cell.ships << ship
     @cell.check
     @cell.ships.first.damage
-
     assert_equal 1 , @cell.ships.first.health
   end
 
