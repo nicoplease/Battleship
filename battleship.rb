@@ -37,9 +37,14 @@ class Battleship
     puts 'Enter the squares for the two-unit ship like this: A1 A2'
     print ">"
     game.store_destroyer_spots
-    puts 'Enter the squares for the three-unit ship like this: A1 A2 A3'
+    puts 'Enter the squares for the three-unit ship like this: B1 - B3'
     print ">"
     game.store_submarine_spots
+    game.place_destroyer_in_cells
+    game.place_submarine_in_cells
+    puts 'Choose a position on which to fire'
+    print ">"
+    game.guess(gets.chomp)
   end
 
 end

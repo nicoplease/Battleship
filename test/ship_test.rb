@@ -3,7 +3,7 @@ require './test/test_helper'
 class ShipTest < Minitest::Test
 
   def setup
-  @ship = Ship.new(2)
+  @ship   = Ship.new(2)
   @ship_2 = Ship.new(3)
   end
 
