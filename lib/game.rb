@@ -52,7 +52,17 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
   def guess(input)
     input_s = input.to_sym
     @board.cell_names[input_s].check
-    @board.cell_names[input_s].ships[0].damage
+    if @board.cell_names[input_s].check == ['H']
+      @board.cell_names[input_s].check
+      @board.cell_names[input_s].ships[0].damage
+    elsif @board.cell_names[input_s].check == ['M']
+      @board.display
+      @board.cell_names[input_s].check
+      puts "And your next one?"
+      print ">> "
+      input = gets.chomp
+      guess(input.upcase)
+    end
     @board.display
   end
 

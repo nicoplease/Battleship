@@ -26,13 +26,32 @@ class Battleship
           puts 'Invalid answer, please, try again'
           start
       end
-    end
+
   end
 
   def play
     game = Game.new
     game.display_board
-    game.store_ship_spots
+    puts "Place your 2-space ship on the board. (ex: A1 A2)"
+    print ">> "
+    game.store_destroyer_spots
+    game.place_destroyer_in_cells
+    puts "Place your 3-space ship on the board. (ex: B1 B3)"
+    print ">> "
+    game.store_submarine_spots
+    game.place_submarine_in_cells
+    game.display_board
+    puts "Alright, now what's your first guess?"
+    print ">> "
+    input = gets.chomp
+    game.guess(input.upcase)
+    until game.ship1.health < 1 && game.ship2.health < 1
+      game.display_board
+      puts "And your next one? "
+      input = gets.chomp
+      game.guess(input.upcase)
+    end
+    puts "congratulations! you won."
   end
 end
 Battleship.new
