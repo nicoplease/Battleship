@@ -2,19 +2,18 @@ require 'pry'
 require './lib/board'
 require './lib/player'
 require './lib/ship'
-require './lib/cell'
 
 class Game
 
 attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
 
   def initialize
-    @board   = Board.new
-    @player1 = Player.new
-    @ship1   = Ship.new(2)
-    @ship2   = Ship.new(3)
+    @board           = Board.new
+    @player1         = Player.new
+    @ship1           = Ship.new(2)
+    @ship2           = Ship.new(3)
     @destroyer_spots = []
-    @sub_spots = []
+    @sub_spots       = []
   end
 
   def display_board
@@ -29,7 +28,6 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
 
   def store_submarine_spots
     input = gets.chomp
-    # input = "B1 B3"
     @sub_spots << @ship2.record_coordinates(input.upcase)
     @sub_spots = @sub_spots.flatten
   end
@@ -57,6 +55,5 @@ attr_reader :cell,:board, :player1, :ship1, :ship2, :destroyer_spots
     @board.cell_names[input_s].ships[0].damage
     @board.display
   end
-
 
 end

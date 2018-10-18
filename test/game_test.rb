@@ -23,12 +23,21 @@ class GameTest < Minitest::Test
     assert_equal %w[B1 B3 B2], @game.ship2.record_coordinates("B1 B3")
   end
 
-  def test_gameboard_can_store_ship_coordinates
+  def test_game_can_store_ship_coordinates
     assert @game.store_destroyer_spots
   end
 
-  def test_gameboard_can_store_ship_coordinates
+  def test_game_can_store_submarine_coordinates
     assert @game.store_submarine_spots
   end
+
+  def test_game_can_place_destroyer_in_cells
+    assert_equal [], @game.place_destroyer_in_cells
+  end
+
+  def test_game_can_place_submarine_in_cells
+    assert_equal [], @game.place_submarine_in_cells
+  end
+
 
 end
