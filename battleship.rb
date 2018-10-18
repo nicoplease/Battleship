@@ -1,4 +1,5 @@
 require './lib/game'
+require './lib/player'
 require 'pry'
 
 class Battleship
@@ -10,42 +11,47 @@ class Battleship
   def start
     puts "Welcome to BATTLESHIP"
     puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
-    print ">"
+    print ">> "
     input = gets.chomp
-    if input == 'p' || input =='play'
-      play
-    elsif input == 'i' || input =='instructions'
-      puts 'Ships cannot wrap around the board'
-      puts 'Ships cannot overlap'
-      puts 'Ships can be laid either horizontally or vertically'
-      puts 'Coordinates must correspond to the first and last units of the ship.'
-    elsif input == 'q' || input =='quit'
-      puts "OK,bye...!"
-    else
-      puts 'Invalid answer, please, try again'
-      start
-    end
+      if input == 'p' || input =='play'
+        play
+      elsif input == 'i' || input =='instructions'
+          puts 'Ships cannot wrap around the board'
+          puts 'Ships cannot overlap'
+          puts 'Ships can be laid either horizontally or vertically'
+          puts 'Coordinates must correspond to the first and last units of the ship.'
+      elsif input == 'q' || input =='quit'
+          puts "OK,bye...!"
+      else
+          puts 'Invalid answer, please, try again'
+          start
+      end
+
   end
 
   def play
     game = Game.new
     game.display_board
-    puts 'I have laid out my ships on the grid.'
-    puts 'You now need to layout your two ships.'
-    puts 'The first is two units long and the second is three units long.'
-    puts 'The grid has A1 at the top left and D4 at the bottom right.'
-    puts 'Enter the squares for the two-unit ship like this: A1 A2'
-    print ">"
+    puts "Place your 2-space ship on the board. (ex: A1 A2)"
+    print ">> "
     game.store_destroyer_spots
-    puts 'Enter the squares for the three-unit ship like this: B1 - B3'
-    print ">"
-    game.store_submarine_spots
     game.place_destroyer_in_cells
+    puts "Place your 3-space ship on the board. (ex: B1 B3)"
+    print ">> "
+    game.store_submarine_spots
     game.place_submarine_in_cells
-    puts 'Choose a position on which to fire'
-    print ">"
-    game.guess(gets.chomp)
+    game.display_board
+    puts "Alright, now what's your first guess?"
+    print ">> "
+    input = gets.chomp
+    game.guess(input.upcase)
+    until game.ship1.health < 1 && game.ship2.health < 1
+      game.display_board
+      puts "And your next one? "
+      input = gets.chomp
+      game.guess(input.upcase)
+    end
+    puts "congratulations! you won."
   end
-
 end
 Battleship.new
