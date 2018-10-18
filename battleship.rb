@@ -11,21 +11,21 @@ class Battleship
   def start
     puts "Welcome to BATTLESHIP"
     puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
-    print ">"
+    print ">> "
     input = gets.chomp
-    if input == 'p' || input =='play'
-      play
+      if input == 'p' || input =='play'
+        play
       elsif input == 'i' || input =='instructions'
-        puts 'Ships cannot wrap around the board'
-        puts 'Ships cannot overlap'
-        puts 'Ships can be laid either horizontally or vertically'
-        puts 'Coordinates must correspond to the first and last units of the ship.'
-        puts  '(IE: You can’t place a two unit ship at “A1 A3”)'
+          puts 'Ships cannot wrap around the board'
+          puts 'Ships cannot overlap'
+          puts 'Ships can be laid either horizontally or vertically'
+          puts 'Coordinates must correspond to the first and last units of the ship.'
       elsif input == 'q' || input =='quit'
-        puts "OK,bye...!"
+          puts "OK,bye...!"
       else
-        puts 'Invalid answer, please, try again'
-        start
+          puts 'Invalid answer, please, try again'
+          start
+      end
     end
   end
 
@@ -34,6 +34,5 @@ class Battleship
     game.display_board
     game.store_ship_spots
   end
-
 end
 Battleship.new

@@ -5,9 +5,8 @@ class Ship
 
   attr_reader :length, :coordinates
 
-  def initialize(length) # instead of length (cell(A1), cell(A2))
+  def initialize(length)
     @length      = length
-    # @cells = [<cell>, <cell>]
     @coordinates = []
   end
 
@@ -21,17 +20,6 @@ class Ship
     @coordinates = @coordinates.flatten
   end
 
-  def cell
-    cells = {}
-    @coordinates.each do |xy|
-      cell = Cell.new(xy[0], xy[1])
-      cell.place_ship
-      cells[xy] = cell
-      # { 'a1' => <#Cell x = 'A', y = 1 >}
-    end
-    cells
-  end
-
   def health
     @length
   end
@@ -39,8 +27,6 @@ class Ship
   def damage
     @length -= 1
   end
-
-
 
   def status
     if @length >= 1
